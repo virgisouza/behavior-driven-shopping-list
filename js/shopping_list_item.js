@@ -1,10 +1,21 @@
-// var shoppingList = (function () {
+
 class ShoppingListItem {
-  constructor(item){
-    this.item = item;
+  constructor(name, description, is_done){
+    this.name = name;
+    this.description = description;
+    this.is_done = is_done;
+  }
+
+  check() {
+    return this.is_done = true;
+  }
+
+  uncheck() {
+    return this.is_done = false;
+  }
+
+  render() {
+    return `<li class="completed_${this.is_done}"><span>${this.name}</span> <span>${this.description}</span></li>`
   }
 }
 
-// }());
-
-module.exports = ShoppingList;

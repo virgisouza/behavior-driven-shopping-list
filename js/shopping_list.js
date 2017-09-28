@@ -1,1 +1,6 @@
-console.log('sanity check');
+
+class ShoppingList {
+  constructor() {
+    this.items = items;
+  }
+}
