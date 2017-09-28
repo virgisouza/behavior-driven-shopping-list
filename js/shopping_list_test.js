@@ -6,10 +6,11 @@ const should = chai.should();
 describe('ShoppingListItem', function () {
 
   var sl;
+  var shopl;
 
   beforeEach( function () {
-    sl = new ShoppingListItem('fern', 'green plant');
-
+    sl = new ShoppingListItem('fern', 'green plant', true);
+    shopl = new ShoppingList('grapes');
   });
 
   it('should be a function', function () {
@@ -48,6 +49,7 @@ describe('ShoppingListItem', function () {
       sl.should.have.property('is_done');
     });
     it('should expect is_done to be true ', function () {
+      expect(sl.check()).to.be.a('boolean');
       expect(sl.check()).to.equal(true);
     });
   });
@@ -57,6 +59,7 @@ describe('ShoppingListItem', function () {
       sl.should.have.property('is_done');
     });
     it('should expect is_done to be false', function () {
+      expect(sl.uncheck()).to.be.a('boolean');
       expect(sl.uncheck()).to.equal(false);
     });
   });
@@ -75,8 +78,53 @@ describe('ShoppingListItem', function () {
     });
 
     it('should construct and return html formatted string', function () {
-      expect(sl.render()).to.equal(`<li class="completed_${is_done}"><span>${name}</span> <span>${description}</span></li>`)
+      expect(sl.render()).to.equal(`<li class="completed_${true}"><span>${'fern'}</span> <span>${'green plant'}</span></li>`);
     });
   });
+  ///end of ShoppingListItems test
+
+  describe('ShoppingList', function () {
+
+    it('should be a function', function () {
+      expect(ShoppingList).to.be.a('function');
+    });
+
+    it('should have proprty items', function () {
+      shopl.should.have.property('items');
+    });
+
+    it('should have constructor that initializes items to an empty array', function () {
+      expect(shopl.items).to.deep.equal([]);
+    });
+  });
+
+  describe('addItem Method', function () {
+
+    it('addItem should add ShoppingListItem object to items array', function () {
+      expect(['grapes']).to.include('grapes');
+    });
+
+    it('if item is not a ShoppingListItem object then throw error', function () {
+        expect({name: 'fern', description: 'green plant'}).to.include({name: 'fern'});
+        expect(function () {shopl.render(); }).to.throw();
+    });
+  });
+  //end of addItem Method
+
+  describe('removeItem Method', function () {
+
+    it('should be a function', function () {
+      expect(shopl.removeItem).to.be.a('function');
+    });
+
+    it('should remove object from from items array', function () {
+
+
+    });
+
+
+  });
+  //end of removeItem Method
+
 
 });
