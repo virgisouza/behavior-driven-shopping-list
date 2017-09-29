@@ -7,10 +7,12 @@ describe('ShoppingListItem', function () {
 
   var sl;
   var shopl;
+  var array;
 
   beforeEach( function () {
     sl = new ShoppingListItem('fern', 'green plant', true);
     shopl = new ShoppingList('grapes');
+    array = [{item:'grapes'}, {item: 'bread'}]
   });
 
   it('should be a function', function () {
@@ -117,14 +119,43 @@ describe('ShoppingListItem', function () {
       expect(shopl.removeItem).to.be.a('function');
     });
 
-    it('should remove object from from items array', function () {
-
-
+    it('should be an item currently in items array', function () {
+      expect('grapes').to.be.oneOf(array, 'item not in items array');
     });
 
+    it('should remove object from from items array', function () {
+      expect('grapes').to.be.oneOf(array, 'item not in items array');
+      expect(array).should.not.contain('grapes');
+    });
 
+    it('removeItem method with no parameters should remove the last item in the items list', function () {
+      expect({}, 'removeItem has parameter').to.be.arguments;
+      expect(array).to.be.equal([{name: 'grapes'}]);
+    });
+
+    it('should do nothing if no items in items list', function () {
+      expect(array).to.be.deep.equal([]);
+    });
+
+    it('should throw an error if passing item that is not a ShoppingListItem object', function () {
+      expect('grapes').to.be.oneOf(sl, 'item not in items array');
+      expect(function () { shopl.removeItem(); }).to.throw();
+    });
   });
   //end of removeItem Method
 
+  describe('renderMethod', function () {
+
+    it('should be a function', function () {
+      expect(shopl.render).to.be.a('function');
+    });
+
+    // calling the instance's render method will concatenate the result of calling render() on each item in this object's items array, wrapping it in a <ul> tags, and returning an html formatted string. ex: <ul>...[all the li elements from ShoppingListItem.render()]...</ul>
+    it('should return each item in objects item list array wrapped in <ul> tags', function () {
+      expect()
+    });
+
+  });
+  //end of render Method
 
 });

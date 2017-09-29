@@ -1,7 +1,7 @@
 
 class ShoppingList {
   constructor(items) {
-    this.items = [];
+   this.items = [];
   }
 
   addItem(sli) {
@@ -12,8 +12,13 @@ class ShoppingList {
   }
   }
 
-  removeItem() {
+  removeItem(slitem) {
 
+  }
+
+  render() {
+
+    return `<ul>...[all the li elements from ShoppingListItem.render()]...</ul>`
   }
 
 
