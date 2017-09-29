@@ -144,7 +144,7 @@ describe('ShoppingListItem', function () {
     });
 
     it('should return each item in objects item list array wrapped in <ul> tags', function () {
-      expect(sl.render()).to.be.equal(`<ul>[${'fern'}, ${'green plant'}]</ul>`)
+      expect(sl.render()).to.be.equal(`<ul>[ ${sl.render()}]</ul>`)
     });
 
   });

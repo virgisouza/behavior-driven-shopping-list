@@ -9,13 +9,21 @@
 
   <button onclick= "add_to_shopping_list()" id="add_shopping_list_item_button">Add to Shopping List</button>
 
+  <form action="">
 
+    Title: <br>
+    <input type="text" name="title"><br>
+    Description:<br>
+    <input type="text" name="description"><br>
+
+  </form>
 
   <div id='mocha'></div>
   <script src='./node_modules/mocha/mocha.js'></script>
   <script src='./node_modules/chai/chai.js'></script>
   <script src='./js/shopping_list_item.js'></script>
   <script src='./js/shopping_list.js'></script>
+  <script src='./js/app.js'></script>
   <script>mocha.setup('bdd')</script>
   <script src='./js/shopping_list_test.js'></script>
   <script>

@@ -24,8 +24,7 @@ class ShoppingList {
   }
 
   render() {
-
-    return `<ul>[ ${ShoppingListItem.render()} ]</ul>`
+    return `<ul>[ ${ ShoppingListItem.render() } ]</ul>`
   }
 
 
